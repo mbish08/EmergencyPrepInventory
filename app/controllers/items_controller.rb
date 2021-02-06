@@ -14,6 +14,14 @@ class ItemsController < ApplicationController
         end
     end
 
+    def index
+        if params[:type_id] && @type = Type.find_by_id(params[:type_id])
+            @items = @type.items
+        else
+            @items = Item.all
+        end
+    end
+
     private
 
     def item_params

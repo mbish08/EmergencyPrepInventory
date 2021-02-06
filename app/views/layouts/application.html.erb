@@ -20,9 +20,12 @@
         <%= link_to "All Types", types_path %> | 
         <%= link_to "Logout", logout_path, method: "delete" %>
       <% end %>
-
-
     </div>
+
+    <div>
+    <%= flash[:message] if flash[:message] %>
+    </div>
+    
     <%= yield %>
   </body>
 </html>
