@@ -14,8 +14,10 @@
   <br>
     <div>
       <% if logged_in? %>
-        <%= link_to "Add an Item to Your List", new_item_path %>
-        <%= link_to "All Items", items_path %>
+        <%= link_to "Add an Item to Your List", new_item_path %> | 
+        <%= link_to "All Items", items_path %> | 
+        <%= link_to "Add a New Storage Type", new_type_path %> | 
+        <%= link_to "All Typess", types_path %> | 
         <%= link_to "Logout", logout_path, method: "delete" %>
       <% end %>
 
