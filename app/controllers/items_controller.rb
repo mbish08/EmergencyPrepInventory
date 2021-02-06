@@ -6,6 +6,7 @@ class ItemsController < ApplicationController
 
     def create
         @item = current_user.items.build(item_params)
+        binding.pry
         if @item.save
             redirect_to items_path
         else
@@ -16,7 +17,7 @@ class ItemsController < ApplicationController
     private
 
     def item_params
-        params.require(:item).permit(:title, :content)
+        params.require(:item).permit(:name, :quantity, :user_id, :type_id)
     end
 
 end
