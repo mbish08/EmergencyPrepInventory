@@ -2,6 +2,8 @@ class Type < ApplicationRecord
     has_many :items
     has_many :users, through: :items
     accepts_nested_attributes_for :items
+    validates :name, uniqueness: true
+    validates :name, presence: true
 
     def items_attributes=(item_attributes)
         item_attributes.values.each do |item_attribute|

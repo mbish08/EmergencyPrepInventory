@@ -10,13 +10,19 @@ class TypesController < ApplicationController
    end
 
    def create
-    
+    @type = Type.new(type_params)
+    if @type.save
+        redirect_to type_path(@type)
+    else
+        flash[:message] = "This storage type already exists."
+        render :new
+    end
    end
 
    private
 
    def type_params
-    params.require(:type).permit(:name, items_attributes: [:name, :quantity])
+    params.require(:type).permit(:name)
    end
 
 end
