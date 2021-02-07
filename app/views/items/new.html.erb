@@ -1,2 +1,11 @@
 <h2>Let's add a new item!</h2>
 <br><br>
+<%= form_for @item do |f| %>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+    <br>
+    <%= f.label :quantity %>
+    <%= f.number_field :quantity %>
+    <br>
+    <%= f.submit "Add item" %>
+<% end %>
