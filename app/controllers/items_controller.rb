@@ -7,6 +7,9 @@ class ItemsController < ApplicationController
 
   def create
     @item = Item.new(item_params)
+    # binding.pry
+    session[:user_id] = @item.user_id
+    binding.pry
     if @item.save
         redirect_to item_path(@item)
     else
@@ -21,7 +24,7 @@ class ItemsController < ApplicationController
   private
 
   def item_params
-    params.require(:item).permit(:name, :quantity, type_attributes: [:name])
+    params.require(:item).permit(:name, :quantity, :user_id, type_attributes: [:name])
   end
 
 
