@@ -1,16 +1,3 @@
 <h2>Let's add a new item!</h2>
 <br><br>
-<%= form_for @item do |f| %>
-    <%= f.label :type, "Type of storage:" %>
-        <%= f.fields_for :type do |t| %>
-            <%= t.text_field :name %>
-        <% end %>
-    <br>
-    <%= f.label :name, "Name of item:" %>
-    <%= f.text_field :name %>
-    <br>
-    <%= f.label :quantity, "Quantity:" %>
-    <%= f.number_field :quantity %>
-    <br>
-    <%= f.submit "Add item" %>
-<% end %>
+<%= render "form" %>
