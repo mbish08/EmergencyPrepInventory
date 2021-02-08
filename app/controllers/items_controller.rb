@@ -8,7 +8,7 @@ class ItemsController < ApplicationController
   def create
     @item = Item.new(item_params)
     # binding.pry
-    session[:user_id] = @item.user_id
+    @item.user_id = session[:user_id]
     binding.pry
     if @item.save
         redirect_to item_path(@item)
