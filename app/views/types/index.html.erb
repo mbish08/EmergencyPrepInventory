@@ -1,3 +1,6 @@
-Index for types
-<br>
-Figure out what I am doing here
+<h2>List of all current storage types</h2>
+<ul>
+    <% @types.each do |type| %>
+        <li><%= type.name %> <%= link_to "See all items in this storage group", type_path(type) %></li>
+    <% end %>
+</ul>

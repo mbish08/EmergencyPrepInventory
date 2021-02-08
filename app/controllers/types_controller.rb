@@ -19,6 +19,10 @@ class TypesController < ApplicationController
     end
    end
 
+   def index
+    @types = Type.all
+   end
+
    private
 
    def type_params
