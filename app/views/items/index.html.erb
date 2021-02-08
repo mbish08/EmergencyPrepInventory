@@ -5,7 +5,7 @@
     <% @user.types.uniq.each do |type| %>
         <dt><%= type.name %></dt>
         <% type.items.collect do |item| %>
-            <dd>Amount of <%= item.name %>: <%= item.quantity %></dd>
+            <dd>Amount of <%= link_to item.name, item_path(item) %>: <%= item.quantity %></dd>
         <% end %>
     <% end %>
 </dl>
