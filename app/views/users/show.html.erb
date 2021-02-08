@@ -1,3 +1,11 @@
 <h1>Welcome <%= @user.username %>!</h1>
 <br>
-<h3>Please select from the links above</h3>
+<h3>Here are your supplies:</h3><br>
+<dl>
+    <% @user.types.uniq.each do |type| %>
+        <dt><%= type.name %></dt>
+        <% type.items.collect do |item| %>
+            <dd>Amount of <%= item.name %>: <%= item.quantity %></dd>
+        <% end %>
+    <% end %>
+</dl>
