@@ -1,3 +1,7 @@
-Type show page
+<h2>All of the <%= @type.name %> items: </h2>
 <br>
-<%= @type.name %>
+<ul>
+    <% @type.items.each do |item| %>
+        <li><%= item.name %> total: <%= item.quantity %></li>
+    <% end %>
+</ul>
