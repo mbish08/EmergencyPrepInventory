@@ -1,10 +1,11 @@
 <br>
 <h2>Here are all of your supplies!</h2>
 <br>
-<div>
-    
-
-
-
-
-</div>
+<dl>
+    <% @user.types.uniq.each do |type| %>
+        <dt><%= type.name %></dt>
+        <% type.items.collect do |item| %>
+            <dd>Amount of <%= item.name %>: <%= item.quantity %></dd>
+        <% end %>
+    <% end %>
+</dl>
