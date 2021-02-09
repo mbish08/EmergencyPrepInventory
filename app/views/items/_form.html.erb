@@ -2,7 +2,9 @@
     <%= f.label :type, "Type of storage:" %>
         
         <%= f.fields_for :type do |t| %>
-            <%= f.collection_select :type_id, Type.all, :id, :name %>
+            <%= f.collection_select :type_id, Type.all, :id, :name, prompt: true %>
+            <%= f.label :name, "Add a new storage type, if not listed" %>
+            <%= t.text_field :name %>
         <% end %>
     <br>
     <%= f.label :name, "Name of item:" %>
