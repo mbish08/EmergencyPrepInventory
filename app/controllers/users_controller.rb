@@ -15,6 +15,7 @@ class UsersController < ApplicationController
     end
 
     def show
+      redirect_if_not_logged_in
         @user = User.find(params[:id])
         # binding.pry
     end
