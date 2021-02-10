@@ -1,11 +1,21 @@
 <br>
 <h2>Here are all of your supplies!</h2>
 <br>
+<% if @type %>
+    Here are your <%= @type.name %> supplies:
+    <br>
+    <ul>
+        <% @items.each do |item| %> 
+            <li><%= item.name %></li>
+        <% end %>
+    </ul>
+<% else %>
 <dl>
-    <% @user.types.uniq.each do |type| %>
+    <% current_user.types.uniq.each do |type| %>
         <dt><%= type.name %></dt>
         <% type.items.collect do |item| %>
             <dd><%= link_to "edit", edit_item_path(item) %> Amount of <%= link_to item.name, item_path(item) %>: <%= item.quantity %></dd>
         <% end %>
     <% end %>
 </dl>
+<% end %>

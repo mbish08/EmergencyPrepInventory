@@ -23,8 +23,14 @@ class ItemsController < ApplicationController
   end
 
   def index
-    @user = current_user
-    @items = Item.all
+    if params[:type_id] && @type = Type.find_by_id(params[:type_id])
+      @type = Type.find_by_id(params[:type_id])
+      @items = @type.items
+      # byebug
+    else
+      # @user = current_user
+      @items = Item.all
+    end
   end 
 
   def edit
