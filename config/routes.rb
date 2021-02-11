@@ -9,7 +9,7 @@ Rails.application.routes.draw do
 
   delete '/logout' => 'sessions#delete'
 
-  resources :users
+  resources :users, only: [:new, :create, :show]
   resources :items
 
   resources :types do
