@@ -1,6 +1,7 @@
 class Item < ApplicationRecord
   belongs_to :user
   belongs_to :type
+  has_many :users, through: :purchases
   validates :name, uniqueness: { case_sensitive: false }
   validates :name, :quantity, :type, presence: true
   validates :quantity, numericality: { greater_than: 0, only_integer: true }
