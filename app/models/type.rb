@@ -1,7 +1,7 @@
 class Type < ApplicationRecord
     has_many :items
     has_many :users, through: :items
-    accepts_nested_attributes_for :items
+    # accepts_nested_attributes_for :items
     validates :name, uniqueness: { case_sensitive: false }
     validates :name, presence: true
 

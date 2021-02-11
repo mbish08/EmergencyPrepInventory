@@ -6,7 +6,7 @@ class Item < ApplicationRecord
   validates :name, :quantity, presence: true
 
   def type_attributes=(attr)
-    self.type = Type.find_or_create_by(name: attr[:name])
+    self.type = Type.find_or_create_by(name: attr[:name]) if !attr[:name].blank?
   end
 
 end

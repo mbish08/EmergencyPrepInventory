@@ -2,8 +2,12 @@ class ItemsController < ApplicationController
   before_action :redirect_if_not_logged_in
 
   def new
-    @item = Item.new
-    @item.build_type
+    if params[:type_id] && @type = Type.find_by_id(params[:type_id])
+      @item = @type.items.build
+    else
+      @item = Item.new
+      @item.build_type
+    end
   end
 
   def create
@@ -24,11 +28,9 @@ class ItemsController < ApplicationController
 
   def index
     if params[:type_id] && @type = Type.find_by_id(params[:type_id])
-      @type = Type.find_by_id(params[:type_id])
       @items = @type.items
       # byebug
     else
-      # @user = current_user
       @items = Item.all
     end
   end 
@@ -40,6 +42,12 @@ class ItemsController < ApplicationController
   def update
     item = Item.find_by(id: params[:id])
     item.update(item_params)
+    redirect_to items_path
+  end
+
+  def destroy
+    @item = Item.find(params[:id])
+    @item.destroy
     redirect_to items_path
   end
 
