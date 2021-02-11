@@ -21,7 +21,7 @@ class TypesController < ApplicationController
    end
 
    def index
-    @types = Type.all
+    @types = current_user.types
    end
 
    private
