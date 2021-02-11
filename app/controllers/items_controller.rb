@@ -11,10 +11,11 @@ class ItemsController < ApplicationController
   end
 
   def create
+    # byebug
     @item = Item.new(item_params)
     # binding.pry
     @item.user_id = session[:user_id]
-    byebug
+    # byebug
     if @item.save
         redirect_to item_path(@item)
     else
