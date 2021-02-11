@@ -1,6 +1,5 @@
 <h1>Please login!</h1>
 <br>
-
 <%= form_for :user do |f| %>
     <%= f.label :username %>
     <%= f.text_field :username %>
@@ -8,5 +7,6 @@
     <%= f.label :password %>
     <%= f.password_field :password %>
     <br>
-    <%= f.submit "Login" %>
+    <%= f.submit "Login with username" %>
 <% end %>
+<%= button_to "Log in with Google", '/auth/google_oauth2'  %>

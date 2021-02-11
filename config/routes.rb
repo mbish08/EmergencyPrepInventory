@@ -16,5 +16,7 @@ Rails.application.routes.draw do
     resources :items, only: [:new, :create, :index]
   end
 
+  get 'auth/:provider/callback' => 'sessions#omniauth'
+
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

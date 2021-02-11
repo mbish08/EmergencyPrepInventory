@@ -1,6 +1,6 @@
 <h2>List of all current storage types</h2>
 <ul>
     <% @types.each do |type| %>
-        <li><%= type.name %> <%= link_to "See all items in this storage group", type_items_path(type) %></li>
+        <li><%= type.name %> <%= link_to "View or edit items in this storage group", type_items_path(type) %></li>
     <% end %>
 </ul>
