@@ -7,7 +7,7 @@ class Item < ApplicationRecord
   validates :name, uniqueness: { case_sensitive: false }
   validates :name, :type, presence: true
   # validates :quantity, numericality: { greater_than: 0, only_integer: true }
-  # accepts_nested_attributes_for :purchase
+  # accepts_nested_attributes_for :purchases
 
   def type_attributes=(attr)
     if !attr[:name].blank?

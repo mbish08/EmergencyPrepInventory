@@ -1,0 +1,8 @@
+<h2>Add your quantity here</h2>
+<%= form_for(@purchase) do |f| %>
+    <%= f.label :quantity, "Quantity: " %>
+    <%= f.number_field :quantity %>
+    <br>
+    <%= f.submit "Update quantity" %>
+
+<% end %>

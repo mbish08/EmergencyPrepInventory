@@ -1,5 +1,6 @@
 <h1>You successfully updated your inventory with this supply!</h1>
 <h2>Storage type:  <%= @item.type.name %></h2>
 <h3>Supply:  <%= @item.name %><h3>
-
-<p>Choose from the links above to continue.</p>
+<br>
+<%= link_to "Add the quantity of #{@item.name}", new_item_purchase_path(@item) %>
+<p>Or choose from the links above to continue.</p>

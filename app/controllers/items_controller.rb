@@ -11,10 +11,10 @@ class ItemsController < ApplicationController
   end
 
   def create
-    # byebug
+    byebug
     # if item_params[:type_id] == ""
     @item = current_user.items.build(item_params)
-    byebug
+    # byebug
     @item.user_id = session[:user_id]
     # byebug
     if @item.save
@@ -35,7 +35,7 @@ class ItemsController < ApplicationController
       # byebug
     else
       @items = current_user.items
-      # byebug
+      byebug
     end
   end 
 
@@ -58,8 +58,8 @@ class ItemsController < ApplicationController
   private
 
   def item_params
-    params.require(:item).permit(:name, :user_id, :type_id, :quantity, purchase: [:quantity], type_attributes: [:name, :user_id])
+    params.require(:item).permit(:name, :user_id, :type_id, :quantity, :purchased_items, type_attributes: [:name, :user_id])
   end
-
+  # purchase: [:quantity]
 
 end

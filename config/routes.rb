@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
 
-  resources :purchases
   root 'sessions#home'
   
   get '/signup' => 'users#new'
@@ -16,6 +15,12 @@ Rails.application.routes.draw do
   resources :types do
     resources :items, only: [:new, :create, :index]
   end
+
+  resources :items do
+    resources :purchases, only: [:new, :create, :edit]
+  end
+
+  resources :purchases
 
   get 'auth/:provider/callback' => 'sessions#omniauth'
 

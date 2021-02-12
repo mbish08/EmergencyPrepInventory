@@ -5,10 +5,5 @@
     <%= f.label :name, "Name of item:" %>
     <%= f.text_field :name %>
     <br>
-    <%= f.fields_for :purchased_items do |p| %>
-        <%= p.label :quantity, "Quantity:" %>
-        <%= p.number_field :quantity %>
-    <% end %>
-    <br>
     <%= f.submit %>
 <% end %>
