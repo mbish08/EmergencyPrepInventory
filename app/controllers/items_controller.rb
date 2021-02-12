@@ -11,7 +11,7 @@ class ItemsController < ApplicationController
   end
 
   def create
-    byebug
+    # byebug
     # if item_params[:type_id] == ""
     @item = current_user.items.build(item_params)
     # byebug
@@ -29,7 +29,7 @@ class ItemsController < ApplicationController
   end
 
   def index
-    # byebug
+    byebug
     if params[:type_id] && @type = Type.find_by_id(params[:type_id])
       @items = @type.items
       # byebug

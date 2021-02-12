@@ -2,6 +2,7 @@
 <%= form_for(@purchase) do |f| %>
     <%= f.label :quantity, "Quantity: " %>
     <%= f.number_field :quantity %>
+    <%= f.hidden_field :item_id, value: params[:item_id] %>
     <br>
     <%= f.submit "Update quantity" %>
 

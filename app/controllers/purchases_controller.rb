@@ -1,9 +1,10 @@
 class PurchasesController < ApplicationController
 
     def new
-        # byebug
-        @item = Item.find_by_id(params[:item_id])
         @purchase = Purchase.new
+        # @purchase.item_id = params[:item_id]
+        # @purchase.user_id = session[:user_id]
+
     end
 
     def create
@@ -25,7 +26,7 @@ class PurchasesController < ApplicationController
     private
 
     def purchase_params
-        params.require(:purchase).permit(:quantity, :item_id)
+        params.require(:purchase).permit(:quantity, :item_id, :user_id)
     end
 
 end
