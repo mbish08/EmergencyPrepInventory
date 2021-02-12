@@ -3,5 +3,6 @@
 <%= f.fields_for :type do |t| %>
     <%= t.label :name, "Add a new storage type, if not listed" %>
     <%= t.text_field :name %>
+    <%= t.hidden_field :user_id, value: current_user.id %>
 <% end %>
 <br>

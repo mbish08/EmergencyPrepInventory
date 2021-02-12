@@ -11,7 +11,7 @@ class TypesController < ApplicationController
    end
 
    def create
-    @type = Type.new(type_params)
+    @type = current_user.types.build(type_params)
     if @type.save
         redirect_to type_path(@type)
     else

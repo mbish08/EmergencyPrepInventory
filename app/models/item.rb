@@ -1,14 +1,24 @@
+
 class Item < ApplicationRecord
+  
   belongs_to :user
   belongs_to :type
   has_many :users, through: :purchases
   validates :name, uniqueness: { case_sensitive: false }
-  validates :name, :quantity, :type, presence: true
-  validates :quantity, numericality: { greater_than: 0, only_integer: true }
-  accepts_nested_attributes_for :purchase
+  validates :name, :type, presence: true
+  # validates :quantity, numericality: { greater_than: 0, only_integer: true }
+  # accepts_nested_attributes_for :purchase
 
   def type_attributes=(attr)
-    self.type = Type.find_or_create_by(name: attr[:name]) if !attr[:name].blank?
+    if !attr[:name].blank?
+      t = Type.find_or_create_by(name: attr[:name]) do |u|
+        byebug
+        u.user_id = attr[:user_id]
+        # byebug
+      end
+      self.type = t
+    end
+    
   end
 
 end
