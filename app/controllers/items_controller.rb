@@ -35,7 +35,7 @@ class ItemsController < ApplicationController
       # byebug
     else
       @items = current_user.items
-      byebug
+      # byebug
     end
   end 
 

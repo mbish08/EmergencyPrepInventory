@@ -7,7 +7,6 @@ class TypesController < ApplicationController
 
    def new
     @type = Type.new
-    # @type.items.build()
    end
 
    def create
