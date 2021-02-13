@@ -16,4 +16,8 @@ def add_item_link
     end
 end
 
+def index_display
+    "stuff here"
+end
+
 end
