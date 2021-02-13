@@ -10,8 +10,8 @@
 <dl>
     <% current_user.types.uniq.each do |type| %>
         <dt><%= type.name %></dt>
-        <% type.items.collect do |item| %>
-            <dd><%= link_to "delete", item, :method => :delete %>  <%= link_to "edit", edit_item_path(item) %> Amount of <%= link_to item.name, item_path(item) %></dd>
+        <% type.items.each do |item| %>
+            <dd><%= link_to "delete", item, :method => :delete %>  <%= link_to "edit", edit_item_path(item) %> Amount of <%= link_to item.name, item_path(item) %><%= item %></dd>
         <% end %>
     <% end %>
 </dl>

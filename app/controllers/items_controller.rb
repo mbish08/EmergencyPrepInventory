@@ -26,10 +26,14 @@ class ItemsController < ApplicationController
 
   def show
     @item = Item.find(params[:id])
+    @purchase = Purchase.find(@item.id)
+    # @quantity = Purchase[:quantity].where("item_id = ?", @item.id)
+    # byebug
   end
 
   def index
     # byebug
+    # @purchase
     if params[:type_id] && @type = Type.find_by_id(params[:type_id])
       @items = @type.items
       # byebug
