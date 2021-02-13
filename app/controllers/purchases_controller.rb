@@ -4,6 +4,17 @@ class PurchasesController < ApplicationController
         @purchase = Purchase.new
     end
 
+    def edit
+        # byebug
+        @purchase = Purchase.find(params[:id])
+    end
+
+    def update
+        purchase = Purchase.find_by(id: params[:id])
+        purchase.update(purchase_params)
+        redirect_to items_path
+    end
+
     def create
         @purchase = Purchase.new(purchase_params)
         @purchase.user_id = session[:user_id]

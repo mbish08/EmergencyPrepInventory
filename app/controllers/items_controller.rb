@@ -33,13 +33,14 @@ class ItemsController < ApplicationController
 
   def index
     # byebug
-    # @purchase
+   
     if params[:type_id] && @type = Type.find_by_id(params[:type_id])
       @items = @type.items
       # byebug
     else
       @items = current_user.items
       # byebug
+      purchase_item
     end
   end 
 
@@ -64,6 +65,12 @@ class ItemsController < ApplicationController
   def item_params
     params.require(:item).permit(:name, :user_id, :type_id, :quantity, :purchased_items, type_attributes: [:name, :user_id])
   end
-  # purchase: [:quantity]
+  
+  def purchase_item
+    @items = current_user.items
+    @items.each do |item|
+        @purchase = Purchase.where("item_id = ?", item.id)
+    end    
+  end
 
 end
