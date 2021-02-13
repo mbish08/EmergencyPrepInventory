@@ -16,4 +16,12 @@ module ItemsHelper
         end
     end
 
+    def purchase_quantity
+        if @purchase 
+            @purchase.quantity
+        else
+            0
+        end
+    end
+
 end
