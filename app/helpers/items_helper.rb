@@ -16,8 +16,25 @@ def add_item_link
     end
 end
 
-def index_display
-    "stuff here"
-end
+# def index_display(user)
+#     if @type 
+#     "Here are your #{@type.name} supplies:"
+    
+#         tag.ul
+#         @items.each do |item|
+#             tag.li "#{item.name}""
+#         end
+    
+#     else
+#         tag.dl
+#         user.types.uniq.each do |type|
+#             "#{type.name}"
+#             type.items.collect do |item|
+#                 # link_to("delete", item, :method => :delete) "link_to "edit", edit_item_path(item)"  "Amount of link_to "#{item.name}"", item_path(item)
+#             end
+#         end
+#     end
+# end
+    
 
 end
