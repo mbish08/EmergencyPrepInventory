@@ -12,6 +12,7 @@ class PurchasesController < ApplicationController
     def update
         purchase = Purchase.find_by(id: params[:id])
         purchase.update(purchase_params)
+        # byebug
         redirect_to items_path
     end
 
