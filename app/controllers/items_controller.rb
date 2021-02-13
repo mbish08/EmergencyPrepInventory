@@ -26,9 +26,9 @@ class ItemsController < ApplicationController
 
   def show
     @item = Item.find(params[:id])
-    @purchase = Purchase.find(@item.id) if @purchase
+    @purchase = Purchase.find(@item.purchase_id) if @purchase
     # @quantity = Purchase[:quantity].where("item_id = ?", @item.id)
-    byebug
+    # byebug
   end
 
   def index

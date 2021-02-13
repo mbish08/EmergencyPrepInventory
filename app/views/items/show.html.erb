@@ -1,7 +1,7 @@
 <h1>You successfully updated your inventory with this supply!</h1>
 <h2>Storage type:  <%= @item.type.name %></h2>
 <h3>Supply:  <%= @item.name %><h3>
-<h3>Quantity: <%= purchase_quantity %></h3>
+<h3>Quantity: <%= @purchase.quantity if @purchase %></h3>
 <br>
 <%= add_or_edit %>
 <p>Or choose from the links above to continue.</p>
