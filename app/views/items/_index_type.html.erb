@@ -11,7 +11,7 @@
     <% current_user.types.uniq.each do |type| %>
         <dt><%= type.name %></dt>
         <% type.items.each do |item| %>
-            <dd><%= link_to "delete", item, :method => :delete %>  <%= link_to "edit", edit_item_path(item) %> <%= link_to item.name, item_path(item) %></dd>
+            <dd><%= link_to "delete", item, :method => :delete %> | <%= link_to "edit", edit_item_path(item) %> | Amount of <%= link_to item.name, item_path(item) %>:  <%= purchase_quantity_index(item) %></dd>
         <% end %>
     <% end %>
 </dl>

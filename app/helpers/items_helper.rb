@@ -33,4 +33,12 @@ module ItemsHelper
         end
     end
 
+    def purchase_quantity_index(item)
+        # byebug
+        @purchase = Purchase.find_by(item_id: item.id)
+        if @purchase
+            @purchase.quantity
+        end
+    end
+
 end
