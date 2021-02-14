@@ -1,23 +1,21 @@
 class PurchasesController < ApplicationController
-
-    # def new
-    #     @purchase = Purchase.new
-    #     byebug
-    # end
+    before_action :redirect_if_not_logged_in
 
     def new
         if params[:item_id] && @item = Item.find_by_id(params[:item_id])
           @purchase = Purchase.new
+        #   byebug
         end
       end
 
     def edit
         # byebug
-        @purchase = Purchase.find(params[:id])
+        @purchase = Purchase.find_by(item_id: params[:item_id])
     end
 
     def update
-        purchase = Purchase.find_by(id: params[:id])
+        # byebug
+        purchase = Purchase.all.where(item_id: purchase_params[:item_id])
         purchase.update(purchase_params)
         # byebug
         redirect_to items_path

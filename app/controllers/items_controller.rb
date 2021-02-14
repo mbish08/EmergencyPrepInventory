@@ -25,8 +25,9 @@ class ItemsController < ApplicationController
   end
 
   def show
+    # byebug
     @item = Item.find(params[:id])
-    
+    @purchase = Purchase.all.where(item_id: params[:id])
     # @quantity = Purchase[:quantity].where("item_id = ?", @item.id)
     # byebug
   end
@@ -45,11 +46,11 @@ class ItemsController < ApplicationController
   end 
 
   def edit
-    @item = Item.find(params[:id])
+    @item = Item.find(params[:item_id])
   end
 
   def update
-    item = Item.find_by(id: params[:id])
+    item = Item.find_by(id: params[:item_id])
     item.update(item_params)
     redirect_to items_path
   end

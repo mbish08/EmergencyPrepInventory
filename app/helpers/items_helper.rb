@@ -38,6 +38,8 @@ module ItemsHelper
         @purchase = Purchase.find_by(item_id: item.id)
         if @purchase
             @purchase.quantity
+        else
+            "0"
         end
     end
 
