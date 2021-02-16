@@ -11,12 +11,8 @@ class ItemsController < ApplicationController
   end
 
   def create
-    # byebug
-    # if item_params[:type_id] == ""
     @item = current_user.items.build(item_params)
-    # byebug
     @item.user_id = session[:user_id]
-    # byebug
     if @item.save
         redirect_to item_path(@item)
     else
@@ -25,22 +21,15 @@ class ItemsController < ApplicationController
   end
 
   def show
-    # byebug
     @item = Item.find(params[:id])
     @purchase = Purchase.all.where(item_id: params[:id])
-    # @quantity = Purchase[:quantity].where("item_id = ?", @item.id)
-    # byebug
   end
 
   def index
-    # byebug
-   
     if params[:type_id] && @type = Type.find_by_id(params[:type_id])
       @items = @type.items
-      # byebug
     else
       @items = current_user.items
-      # byebug
       purchase_item
     end
   end 

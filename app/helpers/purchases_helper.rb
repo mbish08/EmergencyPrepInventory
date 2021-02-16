@@ -1,7 +1,6 @@
 module PurchasesHelper
 
     def add_or_edit
-        # byebug
         if @purchase
             link_to "Update the quantity of #{@item.name}", edit_item_purchase_path(@item)
         else

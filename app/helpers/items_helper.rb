@@ -17,7 +17,6 @@ module ItemsHelper
     end
 
     def purchase_quantity
-        # byebug
         @purchase = Purchase.find_by(item_id: @item.id)
         if @purchase
             @purchase.quantity
@@ -25,7 +24,6 @@ module ItemsHelper
     end
 
     def items_show_links
-        # byebug
         if purchase_quantity.nil?
             link_to "Add the quantity of #{@item.name}", new_item_purchase_path(@item)
         else
@@ -34,7 +32,6 @@ module ItemsHelper
     end
 
     def purchase_quantity_index(item)
-        # byebug
         @purchase = Purchase.find_by(item_id: item.id)
         if @purchase
             @purchase.quantity
