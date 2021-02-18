@@ -20,7 +20,9 @@ class TypesController < ApplicationController
    end
 
    def index
-    @types = current_user.types
+    # commented out for testing. this is the original
+    # @types = current_user.types
+    @types = Type.all
    end
 
    private

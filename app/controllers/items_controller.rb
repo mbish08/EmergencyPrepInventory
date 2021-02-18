@@ -31,6 +31,7 @@ class ItemsController < ApplicationController
     else
       @items = current_user.items
       purchase_item
+      # byebug
     end
   end 
 
@@ -59,7 +60,9 @@ class ItemsController < ApplicationController
   def purchase_item
     @items = current_user.items
     @items.each do |item|
-        @purchase = Purchase.where("item_id = ?", item.id)
+      # byebug
+        purchase = Purchase.where("item_id = ?", item.id)
+        @purchase = purchase
     end    
   end
 

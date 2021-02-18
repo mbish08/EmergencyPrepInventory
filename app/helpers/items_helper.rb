@@ -22,6 +22,7 @@ module ItemsHelper
             @purchase.quantity
         end
     end
+    
 
     def items_show_links
         if purchase_quantity.nil?
