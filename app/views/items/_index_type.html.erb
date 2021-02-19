@@ -3,7 +3,7 @@
     <br>
     <ul>
         <% @items.each do |item| %> 
-            <li><%= item.name %></li>
+            <li><%= item.name %> - Amount: <%= purchase_quantity_index(item) %></li>
         <% end %>
     </ul>
 <% else %>
