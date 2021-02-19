@@ -11,6 +11,7 @@ class TypesController < ApplicationController
 
    def create
     @type = current_user.types.build(type_params)
+    # byebug
     if @type.save
         redirect_to type_path(@type)
     else
@@ -20,6 +21,7 @@ class TypesController < ApplicationController
    end
 
    def index
+    # byebug
     # commented out for testing. this is the original
     # @types = current_user.types
     @types = Type.all

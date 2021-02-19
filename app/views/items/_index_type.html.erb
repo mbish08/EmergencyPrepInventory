@@ -20,7 +20,7 @@
 new stuff here
 <ul>
         <% @items.each do |item| %> 
-            <li><%= item.name %> - Amount: <%= purchase_quantity_index(item) %></li>
+            <li><%= item.type.name %> - <%= item.name %> - Amount: <%= purchase_quantity_index(item) %></li>
         <% end %>
     </ul>
 <br>
