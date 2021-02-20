@@ -18,15 +18,15 @@ module ItemsHelper
         end
     end
 
-    # I don't think this is being used - check and delete, if not needed
-    # def purchase_quantity
-    #     @purchase = Purchase.find_by(item_id: @item.id)
-    #     if @purchase
-    #         @purchase.quantity
-    #     end
-    # end
+    # This is being used on items/show page
+    def purchase_quantity
+        @purchase = Purchase.find_by(item_id: @item.id)
+        if @purchase
+            @purchase.quantity
+        end
+    end
     
-    # currently being used on items/show
+    # was used for items/show but replaced with purchase_quantity_index.  rename?
     def items_show_links
         if purchase_quantity.nil?
             link_to "Add the quantity of #{@item.name}", new_item_purchase_path(@item)
