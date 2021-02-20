@@ -36,11 +36,13 @@ class ItemsController < ApplicationController
   end 
 
   def edit
-    @item = Item.find(params[:item_id])
+    # byebug
+    @item = Item.find(params[:id])
   end
 
   def update
-    item = Item.find_by(id: params[:item_id])
+    item = Item.find_by(id: params[:id])
+    # byebug
     item.update(item_params)
     redirect_to items_path
   end
