@@ -30,7 +30,8 @@ class ItemsController < ApplicationController
 
   def index
     if params[:type_id] && @type = Type.find_by_id(params[:type_id])
-      @items = @type.items
+      # byebug
+      @items = @type.items.where(user_id: current_user.id)
     else
       @items = current_user.items
       # @types = Type.all
