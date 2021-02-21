@@ -3,6 +3,7 @@ class ItemsController < ApplicationController
 
   def new
     if params[:type_id] && @type = Type.find_by_id(params[:type_id])
+      # byebug
       @item = @type.items.build
     else
       @item = Item.new
@@ -11,8 +12,9 @@ class ItemsController < ApplicationController
   end
 
   def create
+    # byebug
     @item = current_user.items.build(item_params)
-    @item.user_id = session[:user_id]
+    # @item.user_id = session[:user_id]
     if @item.save
         redirect_to item_path(@item)
     else
@@ -23,6 +25,7 @@ class ItemsController < ApplicationController
   def show
     @item = Item.find(params[:id])
     @purchase = Purchase.all.where(item_id: params[:id])
+    # byebug
   end
 
   def index
@@ -30,7 +33,8 @@ class ItemsController < ApplicationController
       @items = @type.items
     else
       @items = current_user.items
-      purchase_item
+      # @types = Type.all
+      # purchase_item
       # byebug
     end
   end 
@@ -49,7 +53,11 @@ class ItemsController < ApplicationController
 
   def destroy
     @item = Item.find(params[:id])
+    # @purchase = Purchase.all.where(item_id: params[:id])
+    # byebug
+    # @purchase.destroy
     @item.destroy
+   
     redirect_to items_path
   end
 

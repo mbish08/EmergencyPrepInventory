@@ -45,4 +45,12 @@ module ItemsHelper
         end
     end
 
+    def items_index(items)
+        "Here are all of your supplies!"
+            # byebug
+            items.each do |item|
+                @item_name = item.name.capitalize 
+            end 
+    end
+
 end
