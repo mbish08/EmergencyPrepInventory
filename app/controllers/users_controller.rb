@@ -19,7 +19,7 @@ class UsersController < ApplicationController
       if current_user.id != params[:id].to_i
         redirect_to current_user
       else
-        @user = User.find(params[:id]) if @user
+        @user = User.find(params[:id])
         end
     end
 
