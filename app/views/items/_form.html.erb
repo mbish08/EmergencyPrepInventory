@@ -3,7 +3,6 @@
 <%= form_for @item do |f| %>
    <%= display_type_fields(f) %>
     <%= f.label :name, "Name of supply:" %>
-    <%= f.collection_select :id, Item.all, :id, :name, prompt: true %>
     <%= f.label "Add a new supply, if not listed: " %>
     <%= f.text_field :name %>
     <br>
