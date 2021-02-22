@@ -14,13 +14,17 @@ class ItemsController < ApplicationController
   def create
     # byebug
     @item = Item.find_or_create_by(name: params[:item][:name])
-byebug
-    @item = current_user.items.build(item_params)
-    # @item.user_id = session[:user_id]
-    if @item.save
-        redirect_to item_path(@item)
+    # byebug
+    if @item.id.nil?
+      @item = current_user.items.build(item_params)
+      # @item.user_id = session[:user_id]
+      if @item.save
+          redirect_to item_path(@item)
+      else
+          render :new
+      end
     else
-        render :new
+      byebug
     end
   end
 
