@@ -4,7 +4,7 @@ class Item < ApplicationRecord
   belongs_to :user
   belongs_to :type
   has_many :users, through: :purchases
-  # validates :name, uniqueness: { case_sensitive: false, scope: :purchases_attributes }
+  validates :name, uniqueness: { case_sensitive: false }
   validates :name, :type, presence: true
 
   def type_attributes=(attr)
