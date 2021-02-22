@@ -12,7 +12,9 @@ class ItemsController < ApplicationController
   end
 
   def create
-    byebug
+    # byebug
+    @item = Item.find_or_create_by(name: params[:item][:name])
+byebug
     @item = current_user.items.build(item_params)
     # @item.user_id = session[:user_id]
     if @item.save
