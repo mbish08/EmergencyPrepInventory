@@ -2,9 +2,11 @@ class PurchasesController < ApplicationController
     before_action :redirect_if_not_logged_in
 
     def new
-        if params[:item_id] && @item = Item.find_by_id(params[:item_id])
-          @purchase = Purchase.new
-        end
+        # commented out items are the originals - will need to rework
+        @purchase = Purchase.new
+        # if params[:item_id] && @item = Item.find_by_id(params[:item_id])
+        #   @purchase = Purchase.new
+        # end
       end
 
     def edit
