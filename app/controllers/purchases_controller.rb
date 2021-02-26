@@ -10,7 +10,8 @@ class PurchasesController < ApplicationController
       end
 
     def edit
-        @purchase = Purchase.find_by(item_id: params[:item_id])
+        # byebug
+        @purchase = Purchase.find_by(id: params[:id])
     end
 
     def update

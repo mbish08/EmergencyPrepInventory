@@ -17,7 +17,7 @@ Rails.application.routes.draw do
   end
 
   resources :items do
-    resources :purchases, only: [:new, :create, :edit]
+    resources :purchases, only: [:new, :create, :edit, :index]
   end
 
   resources :purchases

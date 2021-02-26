@@ -1,6 +1,6 @@
 <h2>All the supplies but in purchases!</h2>
 <ol>
     <% @purchases.each do |purchase| %>
-    <li>Supply: <%= purchase.item.name.capitalize %> | Quantity: <%= purchase.quantity %></li><br>
+    <li>Supply: <%= purchase.item.name.capitalize %> | Quantity: <%= purchase.quantity %> | <%= link_to "edit", edit_purchase_path(purchase) %></li><br>
     <% end %>
 </ol>
