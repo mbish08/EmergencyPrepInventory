@@ -1,5 +1,4 @@
-<h1> ADD ERROR MESSAGE HERE </h1>
-
+<%= render partial: 'layouts/errors', locals: { obj: @purchase} %>
 <h2>Update your supply quantity here</h2>
 
 <%= form_for @purchase do |f| %>
