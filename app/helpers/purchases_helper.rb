@@ -16,24 +16,4 @@ module PurchasesHelper
         end
     end
 
-    def purchase_item(purchases)
-        purchases.each do |purchase|
-            # byebug
-            tag.ul 
-                tag.li "#{purchase.item.name}"
-        end
-    end
-
-    def purchase_type(purchases)
-        purchases.each do |purchase|
-            purchase.item.type
-        end
-    end
-
-    def purchase_quantity(purchases)
-        purchase.each do |purchase|
-            purchase.quantity
-        end
-    end
-
 end
