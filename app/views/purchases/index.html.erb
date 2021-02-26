@@ -1,1 +1,6 @@
 <h2>All the supplies but in purchases!</h2>
+<ul>
+    <% @purchases.each do |purchase| %>
+    <li>Supply: <%= purchase.item.name.capitalize %> | Storage Type: <%= purchase.item.type.name %> | Quantity: <%= purchase.quantity %></li>
+    <% end %>
+</ul>

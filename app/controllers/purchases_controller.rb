@@ -32,6 +32,8 @@ class PurchasesController < ApplicationController
 
     def index
         @purchases = current_user.purchases
+        # byebug
+        # @purchase_item = purchased_item(@purchases)
     end
 
     private
