@@ -3,9 +3,9 @@
 <h2>Update your supply quantity here</h2>
 
 <%= form_for @purchase do |f| %>
-   <%= display_type_fields(f) %>
-    <%= f.label :name, "Name of supply:" %>
-    <%= f.text_field :name %>
+   <%= display_item_fields(f) %>
+    <%= f.label :quantity, "Quantity of supply:" %>
+    <%= f.text_field :quantity %>
     <br>
-    <%= f.submit %>
+    <%= f.submit "Add supply to my list" %>
 <% end %>
