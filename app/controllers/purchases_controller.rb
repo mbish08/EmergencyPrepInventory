@@ -30,6 +30,10 @@ class PurchasesController < ApplicationController
         end
     end
 
+    def index
+        @purchases = current_user.purchases
+    end
+
     private
 
     def purchase_params
