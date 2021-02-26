@@ -1,0 +1,7 @@
+<%= f.label :type, "Type of storage:" %>
+<%= f.collection_select :item_id, Item.all, :id, :name, prompt: true %>
+<%= f.fields_for :type do |t| %>
+    <%= t.label :name, "Add a new supply, if not listed: " %>
+    <%= t.text_field :name %>
+<% end %>
+<br>

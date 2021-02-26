@@ -1,9 +1,11 @@
-<h2>Update your supply quantity here</h2>
-<%= form_for(@purchase) do |f| %>
-    <%= f.label :quantity, "Quantity: " %>
-    <%= f.number_field :quantity %>
-    <%= f.hidden_field :item_id, value: params[:item_id] %>
-    <br>
-    <%= f.submit "Update quantity" %>
+<h1> ADD ERROR MESSAGE HERE </h1>
 
+<h2>Update your supply quantity here</h2>
+
+<%= form_for @purchase do |f| %>
+   <%= display_type_fields(f) %>
+    <%= f.label :name, "Name of supply:" %>
+    <%= f.text_field :name %>
+    <br>
+    <%= f.submit %>
 <% end %>
