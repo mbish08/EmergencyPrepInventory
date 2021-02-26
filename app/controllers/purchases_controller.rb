@@ -37,6 +37,11 @@ class PurchasesController < ApplicationController
         # @purchase_item = purchased_item(@purchases)
     end
 
+    def show
+        # byebug
+        @purchase = Purchase.find_by(id: params[:id])
+    end
+
     private
 
     def purchase_params
