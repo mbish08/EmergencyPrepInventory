@@ -13,9 +13,11 @@ class PurchasesController < ApplicationController
 
     def edit
         # byebug
-        @purchase = current_user.purchases.find_by(item_id: params[:item_id])
-        # @purchase.id = @purchase.ids
-        # byebug
+        if params[:item_id] && @item = Item.find_by_id(params[:item_id])
+            @purchase = current_user.purchases.find_by(item_id: params[:item_id])
+        else
+            @purchase = Purchase.find_by_id(params[:id])
+        end
     end
 
     def update
@@ -49,7 +51,7 @@ class PurchasesController < ApplicationController
     private
 
     def purchase_params
-        params.require(:purchase).permit(:id, :quantity, :item_id, :user_id)
+        params.require(:purchase).permit(:quantity, :item_id, :user_id)
     end
 
 end
