@@ -13,7 +13,9 @@ class PurchasesController < ApplicationController
 
     def edit
         # byebug
-        @purchase = Purchase.find_by(id: params[:id])
+        @purchase = current_user.purchases.where(item_id: params[:item_id])
+        # @purchase.id = @purchase.ids
+        # byebug
     end
 
     def update
