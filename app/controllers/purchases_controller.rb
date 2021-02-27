@@ -2,11 +2,13 @@ class PurchasesController < ApplicationController
     before_action :redirect_if_not_logged_in
 
     def new
-        # commented out items are the originals - will need to rework
-        @purchase = Purchase.new
-        # if params[:item_id] && @item = Item.find_by_id(params[:item_id])
-        #   @purchase = Purchase.new
-        # end
+        if params[:item_id] && @item = Item.find_by_id(params[:item_id])
+        #  byebug
+            @purchase = Purchase.where(item_id: @item.id).build
+        else
+            @purchase = Purchase.new
+            @purchase.build_item
+        end
       end
 
     def edit
@@ -38,7 +40,7 @@ class PurchasesController < ApplicationController
     end
 
     def show
-        # byebug
+        byebug
         @purchase = Purchase.find_by(id: params[:id])
     end
 
