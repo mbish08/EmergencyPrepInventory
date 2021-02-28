@@ -30,7 +30,10 @@ class ItemsController < ApplicationController
     if params[:type_id] && @type = Type.find_by_id(params[:type_id])
       @items = @type.items.where(user_id: current_user.id)
     else
-      @items = current_user.items
+      # byebug
+      @items = items_by_purchase
+      # byebug
+      # @items = current_user.items
     end
   end 
 
@@ -64,5 +67,13 @@ class ItemsController < ApplicationController
         @purchase = purchase
     end    
   end
+
+  def items_by_purchase
+    purchase = Purchase.where(user_id: current_user.id)
+    purchase.each do |p|
+      p.item
+    end
+  end
+  
 
 end

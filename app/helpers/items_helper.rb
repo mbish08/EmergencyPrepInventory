@@ -38,6 +38,7 @@ module ItemsHelper
     # currently used in items/index to display quantity of items
     def purchase_quantity_index(item)
         @purchase = Purchase.find_by(item_id: item.id)
+        # byebug
         if @purchase
             @purchase.quantity
         else
@@ -45,12 +46,19 @@ module ItemsHelper
         end
     end
 
+    # check to see if this is being used
     def items_index(items)
         "Here are all of your supplies!"
             # byebug
             items.each do |item|
                 @item_name = item.name.capitalize 
             end 
+    end
+
+    # this is used to grab the name of the item but going thru purchases
+    def purchase_item_name(item)
+        # byebug
+        Item.find_by(id: item.item_id).name
     end
 
 end
