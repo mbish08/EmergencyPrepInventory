@@ -13,11 +13,16 @@ class PurchasesController < ApplicationController
 
     def edit
         # byebug
-        if params[:item_id] && @item = Item.find_by_id(params[:item_id])
-            @purchase = current_user.purchases.find_by(item_id: params[:item_id])
-        else
-            @purchase = Purchase.find_by_id(params[:id])
+        @purchase = current_user.purchases.find_by(item_id: params[:item_id])
+        if @purchase.nil?
+            flash[:message] = "This is not your page, please choose from your list or add a new item."
+            redirect_to items_path
         end
+        # if params[:item_id] && @item = Item.find_by_id(params[:item_id])
+        #     @purchase = current_user.purchases.find_by(item_id: params[:item_id])
+        # else
+        #     @purchase = Purchase.find_by_id(params[:id])
+        # end
     end
 
     def update

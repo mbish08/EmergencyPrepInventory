@@ -23,7 +23,13 @@ class ItemsController < ApplicationController
   end
 
   def show
+    # byebug
     @item = Item.find(params[:id])
+    if @item.nil? || @item.user_id != current_user[:id]
+      # byebug
+      flash[:message] = "This item does not exist or does not belong to you."
+      redirect_to items_path
+    end
   end
 
   def index
