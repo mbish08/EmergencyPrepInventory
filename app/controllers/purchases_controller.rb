@@ -38,7 +38,6 @@ class PurchasesController < ApplicationController
         if @purchase.save
             redirect_to items_path
         else
-            flash[:message] = "You already have this item in your list."
             render :new
         end
     end
