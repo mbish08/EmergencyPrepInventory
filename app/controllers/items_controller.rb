@@ -13,8 +13,10 @@ class ItemsController < ApplicationController
   def create
     @item = Item.new(item_params)
     @item.user_id = session[:user_id]
+    # byebug
     if @item.save
-        redirect_to item_path(@item)
+        # redirect_to item_path(@item)
+        redirect_to new_item_purchase_path(@item)
     else
         render :new
     end

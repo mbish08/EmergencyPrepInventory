@@ -11,7 +11,7 @@ class Item < ApplicationRecord
     if !attr[:name].blank?
       t = Type.find_or_create_by(name: attr[:name]) do |u|
         # byebug
-        # u.user_id = attr[:user_id]
+        u.user_id = attr[:user_id]
         # byebug
       end
       self.type = t
