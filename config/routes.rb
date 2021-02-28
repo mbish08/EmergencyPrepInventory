@@ -11,14 +11,14 @@ Rails.application.routes.draw do
 
   resources :users, only: [:new, :create, :show]
   resources :items, except: [:destroy, :edit]
-  resources :purchases
+  resources :purchases, except: [:index]
 
   resources :types, only: [:new, :create, :index] do
     resources :items, only: [:new, :create, :index]
   end
 
   resources :items do
-    resources :purchases, only: [:new, :create, :edit, :index]
+    resources :purchases, only: [:new, :create, :edit]
   end
 
   get 'auth/:provider/callback' => 'sessions#omniauth'
