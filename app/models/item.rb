@@ -10,7 +10,9 @@ class Item < ApplicationRecord
   def type_attributes=(attr)
     if !attr[:name].blank?
       t = Type.find_or_create_by(name: attr[:name]) do |u|
-        u.user_id = attr[:user_id]
+        # byebug
+        # u.user_id = attr[:user_id]
+        # byebug
       end
       self.type = t
     end
@@ -19,7 +21,7 @@ class Item < ApplicationRecord
 
   def purchases_attributes=(purchase_attributes)
     purchase_attributes.values.each do |purchase_attribute|
-      byebug
+      # byebug
         if purchase_attribute["purchase_id"].present?
             purchase = Purchase.find_or_create_by(purchase_attribute)
             self.purchases << purchase
