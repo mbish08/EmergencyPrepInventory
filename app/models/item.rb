@@ -7,16 +7,11 @@ class Item < ApplicationRecord
   validates :name, uniqueness: { case_sensitive: false }
   validates :name, :type, presence: true
 
+
   def type_attributes=(attr)
     if !attr[:name].blank?
-      t = Type.find_or_create_by(name: attr[:name]) do |u|
-        # byebug
-        u.user_id = attr[:user_id]
-        # byebug
-      end
-      self.type = t
+      self.type = Type.find_or_create_by(attr)
     end
-    
   end
 
   def purchases_attributes=(purchase_attributes)
