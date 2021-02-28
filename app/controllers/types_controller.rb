@@ -1,9 +1,9 @@
 class TypesController < ApplicationController
     before_action :redirect_if_not_logged_in
 
-   def show
-    @type = Type.find(params[:id])
-   end
+#    def show
+#     @type = Type.find(params[:id])
+#    end
 
    def new
     @type = Type.new
