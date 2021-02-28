@@ -2,7 +2,7 @@ class Type < ApplicationRecord
     has_many :items
     has_many :users, through: :items
     belongs_to :user
-    validates :name, uniqueness: { case_sensitive: false, scope: :user }
+    validates :name, uniqueness: { case_sensitive: false }
     validates :name, presence: true
 
     def items_attributes=(item_attributes)

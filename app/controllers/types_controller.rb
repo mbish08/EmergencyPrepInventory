@@ -13,7 +13,7 @@ class TypesController < ApplicationController
     @type = current_user.types.build(type_params)
     # byebug
     if @type.save
-        redirect_to type_path(@type)
+        redirect_to type_items_path(@type)
     else
         flash[:message] = "This storage type already exists."
         render :new
