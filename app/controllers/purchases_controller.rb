@@ -49,6 +49,13 @@ class PurchasesController < ApplicationController
         @purchase = Purchase.find_by(id: params[:id])
     end
 
+    def destroy
+        # byebug
+        @purchase = Purchase.find(params[:id])
+        @purchase.destroy
+        redirect_to items_path
+      end
+
     private
 
     def purchase_params
