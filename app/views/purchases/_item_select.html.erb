@@ -1,0 +1,2 @@
+<%= f.label :type, "Supply item:" %>
+<%= f.collection_select :item_id, Item.all, :id, :name, prompt: true %>

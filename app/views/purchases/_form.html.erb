@@ -1,8 +1,7 @@
 <h2>Update your supply quantity here</h2>
 
 <%= form_for @purchase do |f| %>
-    <%= f.label :type, "Supply item:" %>
-    <%= f.collection_select :item_id, Item.all, :id, :name, prompt: true %>
+    <%= display_item_fields(f) %>
     <%= f.label :quantity, "Quantity of supply:" %>
     <%= f.text_field :quantity %>
     <br>
