@@ -2,6 +2,7 @@ class Purchase < ApplicationRecord
   belongs_to :user
   belongs_to :item
   validates :quantity, uniqueness: { scope: :item }
+  validates :quantity, numericality: { greater_than_or_equal_to: 0, message: "must be a number." }
 
   def purchase_attributes=(attr)
     if !attr[:purchase_id].blank?
