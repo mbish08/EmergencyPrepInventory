@@ -18,7 +18,7 @@ module ItemsHelper
         end
     end
 
-    # This is being used on items/show page
+    # This is being used in items_show_links
     def purchase_quantity
         @purchase = Purchase.find_by(item_id: @item.id)
         if @purchase
@@ -26,7 +26,7 @@ module ItemsHelper
         end
     end
     
-    # was used for items/show but replaced with purchase_quantity_index.  rename?
+    # used for items/show
     def items_show_links
         if purchase_quantity.nil?
             link_to "Add the quantity of #{@item.name}", new_item_purchase_path(@item)
@@ -38,7 +38,6 @@ module ItemsHelper
     # currently used in items/index to display quantity of items
     def purchase_quantity_index(item)
         @purchase = Purchase.find_by(item_id: item.id)
-        # byebug
         if @purchase
             @purchase.quantity
         else
@@ -46,18 +45,8 @@ module ItemsHelper
         end
     end
 
-    # check to see if this is being used
-    def items_index(items)
-        "Here are all of your supplies!"
-            # byebug
-            items.each do |item|
-                @item_name = item.name.capitalize 
-            end 
-    end
-
     # this is used to grab the name of the item but going thru purchases
     def purchase_item_name(item)
-        # byebug
         Item.find_by(id: item.item_id).name
     end
 
