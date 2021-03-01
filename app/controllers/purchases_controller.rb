@@ -13,7 +13,7 @@ class PurchasesController < ApplicationController
 
     def edit
         # byebug
-        @purchase = current_user.purchases.find_by(item_id: params[:item_id])
+        @purchase = current_user.purchases.find_by(id: params[:id])
         if @purchase.nil?
             flash[:message] = "This is not your page, please choose from your list or add a new item."
             redirect_to items_path
@@ -26,7 +26,8 @@ class PurchasesController < ApplicationController
     end
 
     def update
-        purchase = Purchase.all.where(item_id: purchase_params[:item_id])
+        # byebug
+        purchase = Purchase.all.where(id: params[:id])
         purchase.update(purchase_params)
         redirect_to items_path
     end

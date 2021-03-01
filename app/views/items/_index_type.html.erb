@@ -9,7 +9,7 @@
 <% else %>
 <ul>
     <% @items.each do |item| %>
-            <li><%= link_to "delete", item, :method => :delete %> Amount of <%= purchase_item_name(item) %>:  <%= link_to item.quantity, item_path(item.item_id) %></li>
+            <li><%= link_to "delete", item, :method => :delete %> Amount of <%= purchase_item_name(item) %>:  <%= link_to item.quantity, edit_purchase_path(item.id) %></li>
     <% end %>
 </ul>
 <% end %>
