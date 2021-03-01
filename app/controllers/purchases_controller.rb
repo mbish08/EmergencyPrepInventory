@@ -12,21 +12,14 @@ class PurchasesController < ApplicationController
       end
 
     def edit
-        # byebug
         @purchase = current_user.purchases.find_by(id: params[:id])
         if @purchase.nil?
             flash[:message] = "This is not your page, please choose from your list or add a new item."
             redirect_to items_path
         end
-        # if params[:item_id] && @item = Item.find_by_id(params[:item_id])
-        #     @purchase = current_user.purchases.find_by(item_id: params[:item_id])
-        # else
-        #     @purchase = Purchase.find_by_id(params[:id])
-        # end
     end
 
     def update
-        # byebug
         purchase = Purchase.all.where(id: params[:id])
         purchase.update(purchase_params)
         redirect_to items_path
@@ -45,17 +38,13 @@ class PurchasesController < ApplicationController
 
     def index
         @purchases = current_user.purchases
-        # byebug
-        # @purchase_item = purchased_item(@purchases)
     end
 
     def show
-        # byebug
         @purchase = Purchase.find_by(id: params[:id])
     end
 
     def destroy
-        # byebug
         @purchase = Purchase.find(params[:id])
         @purchase.destroy
         redirect_to items_path
