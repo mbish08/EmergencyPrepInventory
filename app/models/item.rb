@@ -16,15 +16,11 @@ class Item < ApplicationRecord
 
   def purchases_attributes=(purchase_attributes)
     purchase_attributes.values.each do |purchase_attribute|
-      # byebug
         if purchase_attribute["purchase_id"].present?
             purchase = Purchase.find_or_create_by(purchase_attribute)
             self.purchases << purchase
         end
     end
   end
-
-  
-
 
 end
