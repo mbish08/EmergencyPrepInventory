@@ -1,24 +1,5 @@
-# README
+This is my Rails Emergency Prep Inventory app.  It is designed to be able to take and track your supply inventory and can be used for every day supplies and/or emergency preparedness. 
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+To use, clone repo from Github and run 'rails s' in your terminal
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+License info: This gem is available as open source under the MIT License (https://opensource.org/licenses/MIT)
