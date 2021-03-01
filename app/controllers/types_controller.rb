@@ -1,17 +1,12 @@
 class TypesController < ApplicationController
     before_action :redirect_if_not_logged_in
 
-#    def show
-#     @type = Type.find(params[:id])
-#    end
-
    def new
     @type = Type.new
    end
 
    def create
     @type = current_user.types.build(type_params)
-    # byebug
     if @type.save
         redirect_to type_items_path(@type)
     else
@@ -21,9 +16,6 @@ class TypesController < ApplicationController
    end
 
    def index
-    # byebug
-    # commented out for testing. this is the original
-    # @types = current_user.types
     @types = Type.all
    end
 
