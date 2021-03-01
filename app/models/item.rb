@@ -22,8 +22,9 @@ class Item < ApplicationRecord
             self.purchases << purchase
         end
     end
-end
+  end
 
+  
 
 
 end
