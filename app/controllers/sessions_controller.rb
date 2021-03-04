@@ -1,5 +1,5 @@
 class SessionsController < ApplicationController
-  skip_before_action :redirect_if_not_logged_in, only: [:new, :create, :home]
+  skip_before_action :redirect_if_not_logged_in, only: [:new, :create, :home, :omniauth]
 
   def home
   end
@@ -24,7 +24,9 @@ class SessionsController < ApplicationController
   end
 
   def omniauth
+    # byebug
     user = User.create_from_omniauth(auth_hash)
+    # byebug
     if user.save
       session[:user_id] = user.id
       redirect_to user_path(user)

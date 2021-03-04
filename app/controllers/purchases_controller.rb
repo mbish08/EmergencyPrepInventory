@@ -20,14 +20,14 @@ class PurchasesController < ApplicationController
     end
 
     def update
-        purchase = Purchase.all.where(id: params[:id])
+        purchase = Purchase.where(id: params[:id])
         purchase.update(purchase_params)
         redirect_to items_path
     end
 
     def create
         @purchase = Purchase.new(purchase_params)
-        @purchase.user_id = session[:user_id]
+        @purchase.user = current_user
         @purchase.item_id = purchase_params[:item_id]
         if @purchase.save
             redirect_to items_path
