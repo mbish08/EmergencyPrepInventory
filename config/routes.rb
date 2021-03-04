@@ -9,6 +9,8 @@ Rails.application.routes.draw do
 
   delete '/logout' => 'sessions#delete'
 
+  get '/purchases/popular' => 'purchases#popular'
+
   resources :users, only: [:new, :create, :show]
   resources :items, except: [:destroy, :edit]
   resources :purchases, except: [:index]
