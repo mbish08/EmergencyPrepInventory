@@ -14,6 +14,7 @@
   <br>
     <div>
       <% if logged_in? %>
+        <%= link_to "Top 3 Supplies", purchases_popular_path %> | 
         <%= link_to "View My Supplies", items_path %> | 
         <%= link_to "Add a New Item", new_item_path %> | 
         <%= link_to "Add a New Storage Type", new_type_path %> | 
