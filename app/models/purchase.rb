@@ -15,7 +15,7 @@ class Purchase < ApplicationRecord
   end
 
   def self.order_by_count
-    byebug
+    # byebug
     # Purchase.left_outer_joins(:item).distinct.select('purchases.*, COUNT(item.*) AS items_count').group('purchases.id')
     # purchase = Purchase.left_outer_joins(:item)
     # purchase.each do |p|
@@ -24,11 +24,12 @@ class Purchase < ApplicationRecord
     #   SELECT COUNT(DISTINCT, item_id) GROUP BY (item_id) FROM purchases
     # SQL
 
-    Purchase.group(:item_id).count("DISTINCT :item_id")
-      
+    purchase = Purchase.group(:item_id).count(:item_id)
 
+    purchase.each do |k, v|
+      byebug
+    end
 
-      # byebug
 
     # end
     
