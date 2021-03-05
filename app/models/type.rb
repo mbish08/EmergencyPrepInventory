@@ -4,6 +4,7 @@ class Type < ApplicationRecord
     belongs_to :user
     validates :name, uniqueness: { case_sensitive: false }
     validates :name, presence: true
+    scope :alpha, -> { self.order(name: :asc) }
 
     def items_attributes=(item_attributes)
         item_attributes.values.each do |item_attribute|

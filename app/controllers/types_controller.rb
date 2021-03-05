@@ -16,7 +16,7 @@ class TypesController < ApplicationController
    end
 
    def index
-    @types = Type.all
+    @types = Type.all.alpha
    end
 
    private
