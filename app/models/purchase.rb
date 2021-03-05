@@ -15,43 +15,8 @@ class Purchase < ApplicationRecord
   end
 
   def self.order_by_count
-    # byebug
-    # Purchase.left_outer_joins(:item).distinct.select('purchases.*, COUNT(item.*) AS items_count').group('purchases.id')
-    # purchase = Purchase.left_outer_joins(:item)
-    # purchase.each do |p|
-    #   purchase.item_id
-
-    # purchase = Purchase.left_outer_joins(:item).group(:item_id).count(:item_id)
-
     purchase = Purchase.left_outer_joins(:item).order("count_item_id").group(:item_id).count(:item_id)
     purchase = purchase.sort_by { |k, v| -v }.first(3)
-
-    # purchase.each do | item, count | 
-    #   item_find = Item.find_by(id: item)
-    #   @item_name = item_find.name
-    #   @item_count = count
-    #   # byebug
-    # end
-
-    
-    # byebug
-
-#     purchase.sort_by do |p|
-#       item = p[0]
-#       count = p[1]
-# byebug
-#   end
-    
-    # purchase.each do |item, count|
-    #   byebug
-
-    # end
-
-
-    # end
-    
-    # byebug
-  
   end
 
 end

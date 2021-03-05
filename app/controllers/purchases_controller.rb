@@ -2,14 +2,11 @@ class PurchasesController < ApplicationController
     before_action :redirect_if_not_logged_in
 
     def popular
-        # byebug
         @purchases = Purchase.order_by_count
-        # byebug
     end
 
     def new
         if params[:item_id] && @item = Item.find_by_id(params[:item_id])
-        #  byebug
             @purchase = Purchase.where(item_id: @item.id).build
         else
             @purchase = Purchase.new
