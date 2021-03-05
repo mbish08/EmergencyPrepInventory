@@ -1,7 +1,7 @@
-<h2>Here are the top 3 supplies purchased by our users: </h2>
+<h2>Here are the top 3 inventory supplies by our users: </h2>
 <ul>
-
-    
-    <li><%= display_top_three %>  <%= %></li>
-
+<% display_top_three(@purchases).each do |item, count| %>
+    <li><%= item.capitalize %> | Total users who have this supply: <%= count %></li>
+<% end %>
 </ul>
+
