@@ -2,7 +2,9 @@ class PurchasesController < ApplicationController
     before_action :redirect_if_not_logged_in
 
     def popular
-
+        # byebug
+        @purchases = Purchase.order_by_count
+        # byebug
     end
 
     def new

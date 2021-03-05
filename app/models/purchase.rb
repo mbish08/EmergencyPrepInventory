@@ -14,4 +14,21 @@ class Purchase < ApplicationRecord
     end
   end
 
+  def self.order_by_count
+    # Purchase.left_outer_joins(:item).distinct.select('purchases.*, COUNT(item.*) AS items_count').group('purchases.id')
+    # purchase = Purchase.left_outer_joins(:item)
+    # purchase.each do |p|
+    #   purchase.item_id
+     
+      
+
+
+      byebug
+
+    # end
+    
+    # byebug
+  
+  end
+
 end
