@@ -20,15 +20,22 @@ class Purchase < ApplicationRecord
     # purchase = Purchase.left_outer_joins(:item)
     # purchase.each do |p|
     #   purchase.item_id
-    # sql = <<-SQL
-    #   SELECT COUNT(DISTINCT, item_id) GROUP BY (item_id) FROM purchases
-    # SQL
 
-    purchase = Purchase.group(:item_id).count(:item_id)
+    purchase = Purchase.left_outer_joins(:item).group(:item_id).count(:item_id)
 
-    purchase.each do |k, v|
-      byebug
-    end
+    
+    # byebug
+
+#     purchase.sort_by do |p|
+#       item = p[0]
+#       count = p[1]
+# byebug
+#   end
+    
+    # purchase.each do |item, count|
+    #   byebug
+
+    # end
 
 
     # end
