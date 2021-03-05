@@ -21,7 +21,10 @@ class Purchase < ApplicationRecord
     # purchase.each do |p|
     #   purchase.item_id
 
-    purchase = Purchase.left_outer_joins(:item).group(:item_id).count(:item_id)
+    # purchase = Purchase.left_outer_joins(:item).group(:item_id).count(:item_id)
+
+    purchase = Purchase.left_outer_joins(:item).order("count_item_id").group(:item_id).count(:item_id)
+    purchase = purchase.sort_by { |k, v| -v }.first(3)
 
     
     # byebug

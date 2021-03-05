@@ -4,7 +4,7 @@ class PurchasesController < ApplicationController
     def popular
         # byebug
         @purchases = Purchase.order_by_count
-        # byebug
+        byebug
     end
 
     def new
