@@ -10,13 +10,17 @@ module PurchasesHelper
     end
 
     # used in popular view
-    def display_top_three(purchases)
-        purchases.each do | item, count | 
+    def display_top_three
+        @top_three = []
+        @purchases.each do | item, count | 
             item_find = Item.find_by(id: item)
-            @item_name = item_find.name
-            @item_count = count
+            # @item_name = item_find.name
+            @top_three << item_find.name
+            # @item_count = count
+            @top_three << count
             # byebug
         end
+        @top_three
     end
 
 end

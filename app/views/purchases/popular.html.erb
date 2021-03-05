@@ -1,8 +1,7 @@
 <h2>Here are the top 3 supplies purchased by our users: </h2>
 <ul>
-<% display_top_three(@purchases).select do |purchase| %>
+
     
-    <li><%= @item_name %>  <%= %></li>
+    <li><%= display_top_three %>  <%= %></li>
 
 </ul>
-<% end %>
