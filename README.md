@@ -6,6 +6,6 @@ A user is able to view the top three supplies by all users, view their own suppl
 
 This application is written in Ruby on Rails for both the back and front end.  
 
-To use, clone repo from Github and run 'rails s' in your terminal
+To use, clone repo from Github, run migrations, then run 'rails s' in your terminal
 
 License info: This gem is available as open source under the MIT License (https://opensource.org/licenses/MIT)
