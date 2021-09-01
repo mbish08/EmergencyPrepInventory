@@ -1,5 +1,4 @@
 class ApplicationController < ActionController::Base
-    # include ApplicationHelper
     protect_from_forgery with: :exception
     before_action :redirect_if_not_logged_in
     helper_method :current_user, :logged_in?
